@@ -14,7 +14,7 @@ class DirectorProducer {
     }
 
     public void informDriver() {
-        jmsTemplate.convertAndSend("pit.stop.required");
+        jmsTemplate.convertAndSend("pit.stop.required", new Object());
     }
 
     public void sendReply(ActiveMQMessage reply) {

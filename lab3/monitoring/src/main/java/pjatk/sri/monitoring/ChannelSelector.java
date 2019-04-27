@@ -1,6 +1,7 @@
 package pjatk.sri.monitoring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ public class ChannelSelector {
     private final JmsTemplate queueTemplate;
     private final JmsTemplate topicTemplate;
 
-    public ChannelSelector(JmsTemplate queueTemplate, JmsTemplate topicTemplate) {
+    public ChannelSelector(@Qualifier("queueTemplate") JmsTemplate queueTemplate, @Qualifier("topicTemplate") JmsTemplate topicTemplate) {
         this.queueTemplate = queueTemplate;
         this.topicTemplate = topicTemplate;
     }
